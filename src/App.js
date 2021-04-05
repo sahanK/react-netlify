@@ -1,7 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [value, setValue] = useState("");
+
+  useEffect(() =>{
+    fetch(".netlify/functions/node-fetch")
+    .then(result => result.json())
+    .then(data => setValue(data))
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +25,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React and Netlify
-          My key is {process.env.REACT_APP_MY_KEY}
+          {value.msg}
         </a>
       </header>
     </div>
