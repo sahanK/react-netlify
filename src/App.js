@@ -16,6 +16,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React and Netlify
+          My key is {process.env.MY_KEY}
         </a>
       </header>
     </div>
